@@ -2,13 +2,14 @@ const models = require('../models');
 const Gamer = models.Gamer;
 
 const makeGamer = (req, res) => {
-  if (!req.body.name || !req.body.age) {
-    return res.status(400).json({ error: 'RAWR! Both name and age are required' });
+  if (!req.body.title || !req.body.platform) {
+    return res.status(400).json({ error: 'RAWR! Both title and platform are required' });
   }
 
   const gamerData = {
-    name: req.body.name,
-    age: req.body.age,
+    title: req.body.title,
+    platform: req.body.platform,
+    status: req.body.status,
     owner: req.session.account._id,
   };
 
@@ -37,7 +38,7 @@ const makerPage = (req, res) => {
       return res.status(400).json({ error: 'An error occurred' });
     }
 
-    return res.render('app', { csrfToken: req.csrfToken(), domos: docs });
+    return res.render('app', { csrfToken: req.csrfToken(), games: docs });
   });
 };
 

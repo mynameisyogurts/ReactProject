@@ -5,20 +5,30 @@ const _ = require('underscore');
 let GamerModel = {};
 
 const convertId = mongoose.Types.ObjectId;
-const setName = (name) => _.escape(name).trim();
+const setTitle = (title) => _.escape(title).trim();
+const setGame = (platform) => _.escape(platform).trim();
+const setStatus = (status) => _.escape(status).trim();
 
 const GamerSchema = new mongoose.Schema({
-  name: {
+  title: {
     type: String,
     required: true,
     trim: true,
-    set: setName,
+    set: setTitle,
   },
 
-  age: {
-    type: Number,
-    min: 0,
+  platform: {
+    type: String,
     required: true,
+    trim: true,
+    set: setGame,
+  },
+
+  status: {
+    type: String,
+    required: true,
+    trim: true,
+    set: setStatus,
   },
 
   owner: {
@@ -34,8 +44,9 @@ const GamerSchema = new mongoose.Schema({
 });
 
 GamerSchema.statics.toAPI = (doc) => ({
-  name: doc.name,
-  age: doc.age,
+  title: doc.title,
+  platform: doc.platform,
+  status: doc.status,
 });
 
 GamerSchema.statics.findByOwner = (ownerId, callback) => {
@@ -43,7 +54,7 @@ GamerSchema.statics.findByOwner = (ownerId, callback) => {
     owner: convertId(ownerId),
   };
 
-  return GamerModel.find(search).select('name age').exec(callback);
+  return GamerModel.find(search).select('title platform status').exec(callback);
 };
 
 GamerModel = mongoose.model('Gamer', GamerSchema);

@@ -10,27 +10,30 @@
   <nav><a href="/login"><img id="logo" src="/assets/img/face.png" alt="face logo"/></a>
     <div class="navlink"><a href="/logout">Log out</a></div>
   </nav>
-  <section id="makeDomo">
-    <form id="domoForm" name="domoForm" action="/maker" method="POST" class="domoForm">
-      <label for="name">Name: </label>
-      <input id="domoName" type="text" name="name" placeholder="Domo Name"/>
-      <label for="age">Age: </label>
-      <input id="domoAge" type="text" name="age" placeholder="Domo Age"/>
+  <section id="makeGame">
+    <form id="gameForm" name="gameForm" action="/maker" method="POST" class="gameForm">
+      <label for="title">Title: </label>
+      <input id="gameTitle" type="text" name="title" placeholder="Game Title"/>
+      <label for="platform">Platform: </label>
+      <input id="gamePlatform" type="text" name="platform" placeholder="Platform"/>
+      <label for="status">Status: </label>
+      <input id="gameStatus" type="text" name="status" placeholder="New, used, digital, etc."/>
         <input type="hidden" name="_csrf" value={{csrfToken}} />
-      <input class="makeDomoSubmit" type="submit" value="Make Domo" />
+      <input class="makeGameSubmit" type="submit" value="Make Game" />
     </form>
   </section>
-  <section id="domos">
-    <div class="domo">
-        {{#if domos}}
-            {{#each domos}}
-                <div class="domo"><img src="/assets/img/domoface.jpeg" alt="domo face" class="domoFace"/>
-                    <h3 class="domoName">Name: {{this.name}}</h3>
-                    <h3 class="domoAge">Age: {{this.age}}</h3>
+  <section id="games">
+    <div class="game">
+        {{#if games}}
+            {{#each games}}
+                <div class="game"><img src="/assets/img/domoface.jpeg" alt="domo face" class="domoFace"/>
+                    <h3 class="gameTitle">Game: {{this.title}}</h3>
+                    <h3 class="gamePlatform">Platform: {{this.platform}}</h3>
+                    <h3 class="gameStatus">Status: {{this.status}}</h3>
                 </div>
             {{/each}}
             {{else}}
-                <h3 class="emptyDomo">No Domos yet</h3>
+                <h3 class="emptyGames">No games yet</h3>
             {{/if}}
     </div>
   </section>
