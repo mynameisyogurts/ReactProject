@@ -12,7 +12,8 @@ const sendAjax = (action, data) => {
     dataType: "json",
     success: (result, status, xhr) => {
       $("#domoMessage").animate({width:'hide'},350);
-
+        
+        console.dir(result);
       window.location = result.redirect;
     },
     error: (xhr, status, error) => {
@@ -59,17 +60,17 @@ $(document).ready(() => {
     return false;
   });
   
-  $("#domoForm").on("submit", (e) => {
+  $("#gameForm").on("submit", (e) => {
     e.preventDefault();
 
     $("#domoMessage").animate({width:'hide'},350);
 
-    if($("#domoName").val() == '' || $("#domoAge").val() == '') {
+    if($("#gameTitle").val() == '' || $("#gamePlatform").val() == '' || $("#gameStatus").val() == '') {
       handleError("RAWR! All fields are required");
       return false;
     }
 
-    sendAjax($("#domoForm").attr("action"), $("#domoForm").serialize());
+    sendAjax($("#gameForm").attr("action"), $("#gameForm").serialize());
 
     return false;
   });

@@ -2,8 +2,8 @@ const models = require('../models');
 const Gamer = models.Gamer;
 
 const makeGamer = (req, res) => {
-  if (!req.body.title || !req.body.platform) {
-    return res.status(400).json({ error: 'RAWR! Both title and platform are required' });
+  if (!req.body.title || !req.body.platform || !req.body.status) {
+    return res.status(400).json({ error: 'RAWR! Both all fields are required' });
   }
 
   const gamerData = {

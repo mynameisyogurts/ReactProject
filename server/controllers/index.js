@@ -1,2 +1,2 @@
 module.exports.Account = require('./Account.js');
-module.exports.Domo = require('./Gamer.js');
+module.exports.Gamer = require('./Gamer.js');
