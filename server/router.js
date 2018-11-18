@@ -9,6 +9,9 @@ const router = (app) => {
   app.get('/logout', mid.requiresLogin, controllers.Account.logout);
   app.get('/maker', mid.requiresLogin, controllers.Gamer.makerPage);
   app.post('/maker', mid.requiresLogin, controllers.Gamer.make);
+  app.get('/account', mid.requiresLogin, controllers.Account.accountPage);
+  app.get('/change', mid.requiresLogin, controllers.Account.passwordChange);
+  app.get('/stats', mid.requiresLogin, controllers.Account.statsPage);
   app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
 };
 

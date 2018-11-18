@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Gamer Library</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link rel="shortcut icon" href="/assets/img/favicon.png"/>
+  <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a href="/login" class="navbar-brand"><img id="logo" src="/assets/img/control.png" alt="controller logo"/></a>
+      <div class="navbar navbar-collapse">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item"><a href='/account' class="nav-link active">Account</a></li>
+              <li class="nav-item"><a href='/stats' class="nav-link">Stats</a></li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+              <a href="/logout" class="nav-link">Log out</a>
+          </ul>
+      </div>
+  </nav>
+    <form class="setup">
+        <label for="theme">Theme: </label>
+        <input type="radio" name="light" value="light" checked>Light
+        <input type="radio" name="dark" value="dark">Dark
+        <hr>
+        <a href="/change" class="formSubmit">Change Password</a>
+    </form>
+</body>
+</html>

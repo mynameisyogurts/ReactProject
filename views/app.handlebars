@@ -5,10 +5,22 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <link rel="shortcut icon" href="/assets/img/favicon.png"/>
   <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
-  <nav><a href="/login"><img id="logo" src="/assets/img/control.png" alt="controller logo"/></a>
-    <div class="navlink"><a href="/logout">Log out</a></div>
+  <nav class="navbar navbar-expand-lg navbar-light">
+      <a href="/login" class="navbar-brand"><img id="logo" src="/assets/img/control.png" alt="controller logo"/></a>
+      <div class="navbar navbar-collapse">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item"><a href='/account' class="nav-link">Account</a></li>
+              <li class="nav-item"><a href='/stats' class="nav-link">Stats</a></li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+              <a href="/logout" class="nav-link">Log out</a>
+          </ul>
+      </div>
   </nav>
   <section id="makeGame">
     <form id="gameForm" name="gameForm" action="/maker" method="POST" class="gameForm">
@@ -43,5 +55,10 @@
     <h3><span id="errorMessage"></span></h3><img id="domo" src="assets/img/domo.png" alt="domo"/>
   </div>
   <script src="/assets/bundle.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
