@@ -8,6 +8,7 @@ const loginPage = (req, res) => {
 
 const signupPage = (req, res) => {
   res.render('signup', { csrfToken: req.csrfToken() });
+    res.render('SignUp');
 };
 
 const accountPage = (req, res) => {
