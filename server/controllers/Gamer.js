@@ -3,7 +3,7 @@ const Gamer = models.Gamer;
 
 const makeGamer = (req, res) => {
   if (!req.body.title || !req.body.platform || !req.body.status) {
-    return res.status(400).json({ error: 'RAWR! Both all fields are required' });
+    return res.status(400).json({ error: 'Dude! Both all fields are required' });
   }
 
   const gamerData = {
@@ -31,6 +31,20 @@ const makeGamer = (req, res) => {
   return gamerPromise;
 };
 
+const getGamer = (request, response) => {
+    const req = request;
+    const res = response;
+    
+    return Gamer.GamerModel.findByOwner(req.session.account._id, (err, docs) => {
+        if (err) {
+            console.log(err);
+            return res.status(400).json({ error: 'An error occurred' });
+        }
+        
+        return res.json({ games: docs });
+    });
+};
+
 const makerPage = (req, res) => {
   Gamer.GamerModel.findByOwner(req.session.account._id, (err, docs) => {
     if (err) {
@@ -43,4 +57,5 @@ const makerPage = (req, res) => {
 };
 
 module.exports.makerPage = makerPage;
+module.exports.getGamer = getGamer;
 module.exports.make = makeGamer;

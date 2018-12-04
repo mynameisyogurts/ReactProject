@@ -2,36 +2,32 @@
 <head>
   <meta charset="utf-8"/>
   <title>Gamer Library</title>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <link rel="shortcut icon" href="/assets/img/favicon.png"/>
+  <script crossorigin src="https://unpkg.com/react@15/dist/react.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+  <script crossorigin src="https://unpkg.com/prop-types/prop-types.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.6.2/remarkable.min.js"></script>
+  <link rel="shortcut icon" href="/assets/img/gicon.png"/>
   <link rel="stylesheet" type="text/css" href="/assets/style.css"/>
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body> 
-  <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
       <a href="/login" class="navbar-brand"><img id="logo" src="/assets/img/control.png" alt="controller logo"/></a>
       <div class="navbar navbar-collapse">
           <ul class="navbar-nav mr-auto">
-              <li class="nav-item"><a href='/login' class="nav-link active">Login</a></li>
-              <li class="nav-item"><a href='/signup' class="nav-link">Sign Up</a></li>
+              <li class="nav-item"><a href='/login' id="loginButton" class="nav-link">Login</a></li>
+              <li class="nav-item"><a href='/signup' id="signupButton" class="nav-link">Sign Up</a></li>
           </ul>
       </div>
   </nav>
-  <section id="login">
-    <form id="loginForm" name="loginForm" action="/login" method="POST" class="mainForm">
-      <label for="username">Username: </label>
-      <input id="user" type="text" name="username" placeholder="Username"/>
-      <label for="pass">Password: </label>
-      <input id="pass" type="password" name="pass" placeholder="Password"/>
-        <input type="hidden" name="_csrf" value={{csrfToken}} />
-      <input class="formSubmit" type="submit" value="Sign In" />
-    </form>
-  </section>
+  <section id="content"></section>
   <div id="domoMessage"><img id="speech" src="/assets/img/speech.png" alt="speech box"/>
-    <h3><span id="errorMessage">Wrong username or password</span></h3><img id="domo" src="assets/img/domo.png" alt="domo"/>
+    <h3><span id="errorMessage">Wrong username or password</span></h3><img id="domo" src="assets/img/gameguy.png" alt="domo"/>
   </div>
-  <script src="/assets/bundle.js"></script>
+  <script src="/assets/loginBundle.js"></script>
 </body>
 </html>
