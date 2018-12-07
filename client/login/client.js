@@ -1,7 +1,7 @@
 const handleLogin = (e) => {
     e.preventDefault();
     
-    $("#domoMessage").animate({width:'hide'},350);
+    $("#domoMessage").animate({width:'hide'},500);
     
     if($("#user").val() == '' || $("#pass").val() == '') {
         handleError("Dude! Username or password is empty");
@@ -10,7 +10,7 @@ const handleLogin = (e) => {
     
     console.log($("input[name=_csrf]").val());
     
-    sendAjax('POST', $("#loginForm").attr("action"), $("#loginForm").serialize, redirect);
+    sendAjax('POST', $("#loginForm").attr("action"), $("#loginForm").serialize(), redirect);
     
     return false;
 };
@@ -18,7 +18,7 @@ const handleLogin = (e) => {
 const handleSignup = (e) => {
     e.preventDefault();
     
-    $("#domoMessage").animate({width:'hide'},350);
+    $("#domoMessage").animate({width:'hide'},500);
     
     if($("#user").val() == '' || $("#pass").val() == '' || $("#pass2").val() == '') {
         handleError("Dude! all field are required");

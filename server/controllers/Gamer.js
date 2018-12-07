@@ -32,17 +32,17 @@ const makeGamer = (req, res) => {
 };
 
 const getGamer = (request, response) => {
-    const req = request;
-    const res = response;
-    
-    return Gamer.GamerModel.findByOwner(req.session.account._id, (err, docs) => {
-        if (err) {
-            console.log(err);
-            return res.status(400).json({ error: 'An error occurred' });
-        }
-        
-        return res.json({ games: docs });
-    });
+  const req = request;
+  const res = response;
+
+  return Gamer.GamerModel.findByOwner(req.session.account._id, (err, docs) => {
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ error: 'An error occurred' });
+    }
+
+    return res.json({ games: docs });
+  });
 };
 
 const makerPage = (req, res) => {

@@ -1,86 +1,90 @@
-const handleDomo = (e) => {
+const handleGame = (e) => {
     e.preventDefault();
     
     $("#domoMessage").animate({width:'hide'},360);
     
-    if($("#domoname").val() == '' || $("#domoAge").val() == '') {
-        handleError("Dude! All fields are required");
+    if($("#gameTitle").val() == '' || $("#gamePlatform").val() == '') {
+        handleError("Dude! Title and Platform are required");
         return false;
     }
     
-    sendAjax('POST', $("#domoForm").attr("action"), $("#domoForm").serialize, function () {
-        loadDomosFromServer();
+    sendAjax('POST', $("#gameForm").attr("action"), $("#gameForm").serialize, function () {
+        loadGamesFromServer();
     });
     
     return false;
 };
 
-const DomoForm = (props) => {
+const GameForm = (props) => {
     return (
-    <form id="domoForm"
-        onsubmit={handleDomo}
-        name="domoForm"
+    <form id="gameForm"
+        onsubmit={handleGame}
+        name="gameForm"
         action="/maker"
         method="POST"
-        className="domoForm"
+        className="gameForm"
     >
-        <label htmlFor="name">Name: </label>
-        <input id="domoName" type="text" name="name" placeholder="Domo name"/>
-        <label htmlFor="age">Age: </label>
-        <input id="domoAge" type="text" name="age" placeholder="Domo age"/>
-        input type="hidden" name="_csrf" value={props.csrf} />
-        input className="makeDomoSubmit" type="submit" value="makeDomo" />
+        <label htmlFor="title">Title: </label>
+        <input id="gameTitle" type="text" name="title" placeholder="Game Title"/>
+        <br/><label htmlFor="platform">Age: </label>
+        <input id="gamePlatform" type="text" name="platform" placeholder="Platform"/>
+        <br/><label htmlFor="status">Status: </label>
+        <input id="gameStatus" type="text" name="status" placeholder="New, used, digital, etc."/>
+        <input type="hidden" name="_csrf" value={props.csrf} />
+        <input className="makeGameSubmit" type="submit" value="Make Game" />
     </form>
     );
 };
 
-const DomoList = function(props) {
-    if(props.domos.length === 0) {
+const GameList = function(props) {
+    if(props.games.length === 0) {
         return (
-            <div className="domoList">
-                <h3 className="emptyDomo"> No Domos yet</h3>
+            <div className="gameList">
+                <h3 className="emptyGames"> No games yet</h3>
             </div>
         );
     }
     
-    const domoNodes = props.domos.map(function(domo) {
+    const gameNodes = props.games.map(function(gamers) {
         return (
-            <div key={domo._id} className="domo">
-                <img src="/assets/img/domoface.jpeg" alt="domo face" className="domoFace" />
-                <h3 className="domoName">Name: {domo.name}</h3>
-                <h3 className="domoAge">Age: {domo.age}</h3>
+            <div key={games._id} className="game">
+                <img src="/assets/img/control.png" alt="controller" className="gameControl" />
+                <strong>Title: </strong>{gamers.title}
+                <hr/>
+                <strong>Platform: </strong>{gamesrs.platform}
+                <br/><strong>Status: </strong>{gamers.status}
             </div>
         );
     });
     
     return (
-        <div className="domoList">
-            {domoNodes}
+        <div className="gameList">
+            {gameNodes}
         </div>
     );
 };
 
-const loadDomosFromServer = () => {
-    sendAjax('GET', '/getDomos', null, (data) => {
+const loadGamesFromServer = () => {
+    sendAjax('GET', '/getGames', null, (data) => {
         ReactDOM.render(
-            <DomoList domos={data.domos} />,
-            document.querySelector("#domos")
+            <GameList games={data.games} />,
+            document.querySelector("#games")
         );
     });
 };
 
 const setup = function(csrf) {
     ReactDOM.render(
-        <DomoForm csrf={csrf} />,
-        document.querySelector("#makeDomo")
+        <GameForm csrf={csrf} />,
+        document.querySelector("#makeGame")
     );
     
     ReactDOM.render(
-        <DomoList domos={[]} />,
-        document.querySelector("#domos")
+        <GameList games={[]} />,
+        document.querySelector("#games")
     );
     
-    loadDomosFromServer();
+    loadGamesFromServer();
 };
 
 const getToken = () => {
