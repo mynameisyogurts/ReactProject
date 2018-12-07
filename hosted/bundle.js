@@ -82,7 +82,7 @@ var GameList = function GameList(props) {
                 null,
                 "Platform: "
             ),
-            gamesrs.platform,
+            gamers.platform,
             React.createElement("br", null),
             React.createElement(
                 "strong",

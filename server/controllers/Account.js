@@ -18,6 +18,10 @@ const statsPage = (req, res) => {
   res.render('stats', { csrfToken: req.csrfToken() });
 };
 
+const notesPage = (req, res) => {
+    res.render('notes', { csrfToken: req.csrfToken() });
+};
+
 const logout = (req, res) => {
   req.session.destroy();
   res.redirect('/');
@@ -108,3 +112,4 @@ module.exports.getToken = getToken;
 module.exports.accountPage = accountPage;
 module.exports.passwordChange = passwordChange;
 module.exports.statsPage = statsPage;
+module.exports.notesPage = notesPage;

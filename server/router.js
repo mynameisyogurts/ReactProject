@@ -13,6 +13,8 @@ const router = (app) => {
   app.get('/account', mid.requiresLogin, controllers.Account.accountPage);
   app.get('/change', mid.requiresLogin, controllers.Account.passwordChange);
   app.get('/stats', mid.requiresLogin, controllers.Account.statsPage);
+    app.get('/notes', mid.requiresLogin, controllers.Account.notesPage);
+    app.get('/change', mid.requiresLogin, controllers.Account.passwordChange);
   app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
 };
 

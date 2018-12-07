@@ -20,7 +20,7 @@ nav {
     box-shadow: 0 5px 0 0 rgba(0, 0, 0, 0.1);
 }
 
-.gameForm {
+.gameForm, .notesForm {
     border-radius: 5px;
     width: 50%;
     background-color: #dcdcdc;
@@ -31,11 +31,11 @@ nav {
     margin-top: 30px;
 }
 
-.gameForm label, #loginForm label, .setup label, #signupForm label, #changeForm label {
+.gameForm label, #loginForm label, .setup label, #signupForm label, #changeForm label, #notesForm label {
     font-weight: bold;
 }
 
-.gameForm input[type=text] {
+.gameForm input[type=text], .notesForm input[type=text] {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -43,6 +43,10 @@ nav {
     box-sizing: border-box;
     margin-top: 6px;
     margin-bottom: 12px;
+}
+
+#notesPad {
+    height: 200px;
 }
 
 /*
@@ -57,7 +61,7 @@ nav {
 }
 */
 
-.makeGameSubmit {
+.makeGameSubmit, .makeNoteSubmit {
     transition: background-color 0.4s ease;
     display: inline;
     width: 20%;
@@ -68,11 +72,12 @@ nav {
     text-decoration: none;
 }
 
-.makeGameSubmit:link, .makeGameSubmit:visited, .makeGameSubmit:hover, .makeGameSubmit:active {
+.makeGameSubmit:link, .makeGameSubmit:visited, .makeGameSubmit:hover, .makeGameSubmit:active,
+.makeNoteSubmit:link, .makeNoteSubmit:visited, .makeNoteSubmit:hover, .makeNoteSubmit:active {
     color: white;
 }
 
-.makeGameSubmit:hover {
+.makeGameSubmit:hover, .makeNoteSubmit:hover {
     transition: background-color 0.4s ease;
     background-color: #F37335;
 }

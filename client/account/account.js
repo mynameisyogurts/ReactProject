@@ -1,12 +1,12 @@
 const accountWindow = (props) => {
     return (
-        <form class="setup">
+        <div>
         <label for="theme">Theme: </label>
         <input type="radio" name="light" value="light" checked>Light</input>
         <input type="radio" name="dark" value="dark">Dark</input>
         <hr/>
         <a href="/change" class="formSubmit">Change Password</a>
-        </form>
+        <div>
     );
 };
             

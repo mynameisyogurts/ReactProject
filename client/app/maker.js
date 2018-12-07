@@ -51,7 +51,7 @@ const GameList = function(props) {
                 <img src="/assets/img/control.png" alt="controller" className="gameControl" />
                 <strong>Title: </strong>{gamers.title}
                 <hr/>
-                <strong>Platform: </strong>{gamesrs.platform}
+                <strong>Platform: </strong>{gamers.platform}
                 <br/><strong>Status: </strong>{gamers.status}
             </div>
         );
